@@ -1,0 +1,23 @@
+CREATE TABLE auth0_users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    auth0_user_id TEXT UNIQUE NOT NULL,  -- e.g., "auth0|5f7c2bc123456"
+    email TEXT NOT NULL,
+    email_verified BOOLEAN DEFAULT 0,
+    name TEXT,
+    nickname TEXT,
+    picture TEXT,  -- URL to profile picture
+    locale TEXT,  user's language and regional preference
+    created_at DATETIME NOT NULL DEFAULT 'CURRENT_TIMESTAMP',  -- ISO 8601 timestamp
+    updated_at DATETIME NOT NULL ,  -- ISO 8601 timestamp
+    user_metadata TEXT,  -- JSON blob as TEXT
+    app_metadata TEXT,    -- JSON blob as TEXT
+	ynDeleted BOOLEAN DEFAULT 0
+);
+auth0_user_id is the unique identifier from Auth0 (e.g., auth0|abc123).
+
+email_verified is often a boolean flag (true or false).
+
+created_at and updated_at are typically stored as ISO 8601 strings.
+
+user_metadata and app_metadata are optional and may contain additional JSON data.
+ SQLite doesn't support JSON natively in all versions, so storing as TEXT is safest.

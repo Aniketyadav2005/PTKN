@@ -1,0 +1,307 @@
+ Regions-------------------------------------------------------------------------------
+http://127.0.0.1:5000/GetRegions                  GET
+
+http://127.0.0.1:5000/GetRegionsById              POST
+{"id": 2}
+
+ Countries---------------------------------------------------------------------------
+ http://127.0.0.1:5000/GetCountries                GET
+
+http://127.0.0.1:5000/GetCountriesById              POST
+{"id": 2}
+
+http://127.0.0.1:5000/GetCountriesByPhonecode
+{"phonecode":"91"}
+
+http://127.0.0.1:5000/GetCountriesByRegion_id
+{"region_id":1}
+
+Cities-------------------------------------------------------------------------------
+
+http://127.0.0.1:5000/GetCities  ----Very Slow Huge Data Unsorted
+
+http://127.0.0.1:5000/GetCitiesById
+{"id": 2}
+
+http://127.0.0.1:5000/GetCitiesByState_id
+{"state_id":1}
+
+http://127.0.0.1:5000/GetCitiesByState_code
+{"state_code":"AZ"}
+
+http://127.0.0.1:5000/GetCitiesByCountry_id
+{"country_id": 6}
+
+http://127.0.0.1:5000/GetCitiesByCountry_code
+{"country_code": "AD"}
+
+States-------------------------------------------------------------------------------------
+
+http://127.0.0.1:5000/GetStates
+
+http://127.0.0.1:5000/GetStatesById
+{"id": 1}
+
+http://127.0.0.1:5000/GetStatesByCountry_id
+{"country_id": 147}
+
+http://127.0.0.1:5000/GetStatesByCountry_code
+{"country_code": "IN"}
+
+Auth0Users-----------------------------------------------------------------------------------------
+
+http://127.0.0.1:5000/GetAuth0Users
+
+http://127.0.0.1:5000/GetAuth0UsersById
+{"id": 1}
+
+http://127.0.0.1:5000/GetAuth0UsersByEmail
+{"email": "abc@gmail.com"}
+
+http://127.0.0.1:5000/GetAuth0UsersByAuth0_user_id
+{"auth0_user_id": "1234"}
+
+{{baseURL}}/saveAuth0Users
+{
+    "auth0_user_id": "1",
+    "email": "email@gmail.com",
+    "email_verified": false,
+    "name": "UserName",
+    "nickname": "UserNickName",
+    "picture": "pictureURL",
+    "locale": "Language",
+    "created_at": "15-06-2021 13:10:10",
+    "updated_at": null,
+    "user_metadata":"user_metadata",
+    "app_metadata":"app_metadata",
+    "ynDeleted": false
+}
+
+{{baseURL}}/editAuth0Users
+{
+    "id":2,
+    "auth0_user_id": "1",
+    "email": "email@site.com",
+    "email_verified": false,
+    "name": "UserName",
+    "nickname": "UserNickName",
+    "picture": "pictureURL",
+    "locale": "Language",
+    "created_at": "15-06-2021 13:10:10",
+    "updated_at": null,
+    "user_metadata":"user_metadata",
+    "app_metadata":"app_metadata",
+    "ynDeleted": false
+}
+
+{{baseURL}}/deleteAuth0Users
+{
+    "id":2
+}
+
+MstUser---------------------------------------------------------------------------------------
+
+{{baseURL}}/GetUser     GET
+
+{{baseURL}}/GetUserById
+{"id":"1"}
+
+{{baseURL}}/GetUserLogin
+{
+"nvcharLoginName":"Login Name",
+"nvcharPassword":"Password"
+}
+
+{{baseURL}}/saveUser
+{
+    "nvcharUserName" :"UserNameOne",
+    "nvcharLoginName":"Login_Name",
+    "nvcharPassword":"Password",
+    "nvcharContact": "1234567892",
+    "nvcharEmail" :"eml@abc.com",
+    "ncharUserRole" :null,
+    "nvcharDescription": null,
+    "dtDateOfCreation" :"15-06-2021 13:10:10",
+    "dtDateOfModification" :null,
+    "ynDeleted": false
+}
+
+{{baseURL}}/editUser
+{
+    "id": 2,
+    "nvcharUserName" :"UserNameOne",
+    "nvcharLoginName":"Login_Name",
+    "nvcharPassword":"Password",
+    "nvcharContact": "1111567892",
+    "nvcharEmail" :"eml@abc.com",
+    "ncharUserRole" :null,
+    "nvcharDescription": null,
+    "dtDateOfModification" :null,
+    "ynDeleted": false
+}
+
+{{baseURL}}/deleteUser
+{
+    "id": 2
+}
+
+{{baseURL}}/GetMstUserByNvcharContact
+{
+    "nvcharContact": "1234567890"
+}
+
+{{baseURL}}/GetMstUserByNvcharEmail
+{
+    "nvcharEmail": "eml@abc.com"
+}
+
+#UserProfile--------------------------------------------------------------------
+
+http://127.0.0.1:5000/GetUserProfile        GET
+
+
+http://localhost:5000/GetUserProfileById     POST
+{
+  "id": 1
+}
+
+
+http://localhost:5000/GetUserProfileByCityId
+
+{
+  "intCityId": 102
+}
+
+http://localhost:5000/saveUserProfile
+
+{
+  "intUserId": 1,
+  "intCityId": 102,
+  "nvcharUserAddress": "123 Example St",
+  "nvcharUserProfileTitle": "Software Developer",
+  "nvcharUserProfileDescription": "Experienced backend developer",
+  "nvcharlocale": "en_US",
+  "nvcharAAdharNo": "1234-5678-9012",
+  "dtDateofBirth": "22-06-2005 10:12:11",
+  "intVerificationStatus": 1,
+  "nvcharProfileImageUrl": "http://example.com/image.jpg",
+  "nvcharDescription": "Profile description"
+}
+
+
+http://localhost:5000/editUserProfile
+
+{
+  "id": 1,
+  "intUserId": 1,
+  "intCityId": 101,
+  "nvcharUserAddress": "456 Updated Address",
+  "nvcharUserProfileTitle": "Updated Title",
+  "nvcharUserProfileDescription": "Updated Description",
+  "nvcharlocale": "en_US",
+  "nvcharAAdharNo": "1234-5678-9012",
+  "dtDateofBirth": "12-2-2001 10:12:00",
+  "intVerificationStatus": 1,
+  "nvcharProfileImageUrl": "http://example.com/image_updated.jpg",
+  "nvcharDescription": "Updated profile description"
+}
+
+http://localhost:5000/deleteUserProfile
+
+{
+  "id": 1
+}
+
+
+#-------------------------- mstBusinessProfileRepository ---------------------------------------------
+
+ http://127.0.0.1:5000/GetBusinessProfile      GET
+
+
+ http://127.0.0.1:5000/GetBusinessProfileById
+ {
+  "id": 1
+}
+
+ http://127.0.0.1:5000/saveBusinessProfile
+
+ {
+  "intUserId": 1,
+  "intCityId": 1,
+  "intBusinessCatagoryId": 1,
+  "nvcharBusinessProfileTitle": "Test Title",
+  "nvcharBusinessProfileDescription": "Description here",
+  "nvcharlocale": "Pune",
+  "nvcharPAN": "ABCDE1234F",
+  "nvcharAAdharNo": "123456789012",
+  "nvcharGSTNo": "27ABCDE1234F1Z5",
+  "intVerificationStatus": 1,
+  "nvcharProfileImageUrl": "http://image.url",
+  "nvcharDescription": "Business Description"
+}
+
+
+http://localhost:5000/editBusinessProfile
+
+{
+  "id": 1,
+  "intUserId": 101,
+  "intCityId": 10,
+  "intBusinessCatagoryId": 5,
+  "nvcharBusinessProfileTitle": "New Title Updated",
+  "nvcharBusinessProfileDescription": "Updated description from Postman",
+  "nvcharlocale": "Mumbai",
+  "nvcharPAN": "ABCDE1234F",
+  "nvcharAAdharNo": "123412341234",
+  "nvcharGSTNo": "27ABCDE1234F1Z5",
+  "intVerificationStatus": 1,
+  "nvcharProfileImageUrl": "http://example.com/image.jpg",
+  "nvcharDescription": "This is an updated description."
+}
+
+ http://127.0.0.1:5000/deleteBusinessProfile
+
+ {
+  "id": 1
+}
+
+#----------------------------------------tblBusinessProfileTags --------------------------------------
+
+http://127.0.0.1:5000/GetBusinessProfileTags   GET
+
+
+http://127.0.0.1:5000/GetBusinessProfileTagsById
+
+ {
+  "id": 1
+}
+
+http://127.0.0.1:5000/saveBusinessProfileTags
+
+{
+  "intBusinessProfileId": 101,
+  "intBusinessProfileTagsId": 1,
+  "intCatagoryId": 10,
+  "intCatagoryTagId": 100,
+  "nvcharDescription": "Sample description"
+}
+
+http://127.0.0.1:5000/editBusinessProfileTags
+{
+  "id": 1,
+  "intBusinessProfileId": 1,
+  "intBusinessProfileTagsId": 1,
+  "intCatagoryId": 1,
+  "intCatagoryTagId": 10,
+  "nvcharDescription": "Sample description"
+}
+
+
+http://localhost:5000/deleteBusinessProfileTags
+
+{
+  "id": 1
+}
+
+#------------------------------------------------------ msCatagory ----------------------------------------------
+
